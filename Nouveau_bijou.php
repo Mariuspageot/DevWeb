@@ -7,22 +7,28 @@
       <input type="text" class="form-control" id="nom" placeholder="Nom du client">
     </div>
     <div class="form-group col-md-6">
-      <label for="prénom">Prénom</label>
-      <input type="text" class="form-control" id="prénom" placeholder="Prénom du client">
+      <label for="prénom">prix</label>
+      <input type="text" class="form-control" id="prix" placeholder="prix">
     </div>
   </div>
   <div class="form-group">
-    <label for="nomBijou">Nom du bijou</label>
-    <input type="text" class="form-control" id="nomBijou" placeholder="Nom du bijou">
+    <label for="nomBijou">premiere tache</label>
+    <input type="text" class="form-control" id="premiere_tache" placeholder="premiere tache">
   </div>
   <div class="form-group">
-    <label for="description">Description</label>
-    <input type="text" class="form-control" id="description" placeholder="Demande du client">
+    <label for="description">IDET</label>
+    <input type="text" class="form-control" id="IDET" placeholder="etape">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="temps">Temps estimé</label>
       <input type="text" class="form-control" id="temps" placeholder="Temps prévue">
+    </div>
+  </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="temps">IDC</label>
+      <input type="text" class="form-control" id="IDC" placeholder="Client">
     </div>
   </div>
   <div class="form-row">
