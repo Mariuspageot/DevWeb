@@ -4,11 +4,11 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="nom">Nom</label>
-      <input type="text" class="form-control" id="nom" placeholder="Nom de l'employer">
+      <input type="text" class="form-control" id="Nom" placeholder="Nom de l'employer">
     </div>
     <div class="form-group col-md-6">
-      <label for="prénom">Prénom</label>
-      <input type="text" class="form-control" id="prénom" placeholder="Prénom de l'employer">
+      <label for="Prenom">Prénom</label>
+      <input type="text" class="form-control" id="Prenom" placeholder="Prénom de l'employer">
     </div>
   </div>
   <div class="form-row">
