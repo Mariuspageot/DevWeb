@@ -1,0 +1,15 @@
+.centerb {
+    position: absolute;
+    top: 30%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+body{
+    background-color: darkcyan;
+}
+body> .container{
+    padding-top: 10%;
+}
+.card{
+    position: relative;
+}
