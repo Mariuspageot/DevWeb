@@ -5,7 +5,7 @@
 require_once '../Config.php';
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
-$r = $db->prepare("select * from employees");
+$r = $db->prepare("select employees.ID, employees.Nom, Prenom, Grade, IDMetier, metier.nom, Status from employees join metier on employees.IDMetier=metier.ID");
 
 $r -> execute();
 
@@ -42,7 +42,7 @@ $employees=$r->fetchAll();
                 <td><?php echo $employee["Nom"]; ?></td>
                 <td><?php echo $employee["Prenom"]; ?></td>
                 <td><?php echo $employee["Grade"]; ?></td>
-                <td><?php echo $employee["IDMetier"]; ?></td>
+                <td><?php echo $employee["nom"]; ?></td>
                 <td><?php echo $employee["Status"]; ?></td>
             </tr>
 
@@ -51,5 +51,7 @@ $employees=$r->fetchAll();
         ?>
         </tbody>
     </table>
+    </table>
+
 <a href="Nouveau_employer.php" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Nouveau</a>
 <?php include_once'footer.php'?>
