@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
         <form action="logout">
-            <a class="navbar-brand" href="#"><img src="logo-chimere.svg" height="40px"></a>
+            <a class="navbar-brand" href="#"><img src="../logo-chimere.svg" height="40px"></a>
         </form>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
