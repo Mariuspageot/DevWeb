@@ -1,50 +1,58 @@
 <?php $title = "Liste des bijoux"; ?>
 <?php include_once'./header.php'?>
+
+<?php
+require_once '../Config.php';
+$db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
+
+$r = $db->prepare("select ID, Nom, Prix, IDC from bijoux");
+
+$r -> execute();
+
+$bijoux=$r->fetchAll();
+?>
     <h1>Liste des bijoux</h1>
     <table>
         <thead>
-          <th>Nom:</th>
+        <th>Nom:</th>
         </thead>
         <thead>
-          <th>Prénom:</th>
+        <th>Prénom:</th>
         </thead>
         <thead>
-          <th>Grade:</th>
+        <th>Grade:</th>
         </thead>
-</table>
-    <table class="table table-hover">
-  <thead class="thead-dark">
-  <tr>
-      <th scope="col">#</th>
-      <th scope="col">Bijou</th>
-      <th scope="col">Cient</th>
-      <th scope="col">Tache actuel</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr onclick="location.href='Detail_bijou.php'">
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+        <tbody>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Client</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+            <?php
+            foreach ($bijoux as  $bijou) {
+                ?>
+                <tr>
+                    <td><?php echo $bijou["ID"]; ?></td>
+                    <td><?php echo $bijou["Nom"]; ?></td>
+                    <td><?php echo $bijou["Prix"]; echo "€"?></td>
+                    <td><?php echo $bijou["IDC"]; ?></td>
+                    <td><a href="Detail_bijou.php?ID=<?php echo $bijou["ID"]?>" class="btn btn-dark">VOIR</a></td>
+                </tr>
+
+                <?php
+            }
+            ?>
+            </table>
+        </tbody>
+    </table>
     <a href="Nouveau_bijou.php" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Nouveau</a>
     <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-dark" type="submit">Search</button>
     </form>
-<?php include_once'./footer.php'?>
+<?php include_once'footer.php'?>
