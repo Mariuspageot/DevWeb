@@ -5,7 +5,7 @@
 require_once '../Config.php';
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
-$r = $db->prepare("select employees.ID, employees.nom, Prenom, Grade, metier.nom, Status from employees join metier on employees.IDMetier=metier.ID");
+$r = $db->prepare("select employees.ID, NomE, PrenomE, Grade, NomMetier, Status from employees join metier on employees.IDMetier=metier.ID");
 
 $r -> execute();
 
@@ -39,10 +39,10 @@ $employees=$r->fetchAll();
             ?>
             <tr>
                 <td><?php echo $employee["ID"]; ?></td>
-                <td><?php echo $employee["Nom"]; ?></td>
-                <td><?php echo $employee["Prenom"]; ?></td>
+                <td><?php echo $employee["NomE"]; ?></td>
+                <td><?php echo $employee["PrenomE"]; ?></td>
                 <td><?php echo $employee["Grade"]; ?></td>
-                <td><?php echo $employee["nom"]; ?></td>
+                <td><?php echo $employee["NomMetier"]; ?></td>
                 <td><?php echo $employee["Status"]; ?></td>
             </tr>
 

@@ -5,13 +5,13 @@ $id=filter_input(INPUT_GET, "ID");
 
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
-$r = $db->prepare("select Nom from bijoux where ID=:id");
+$r = $db->prepare("select NomB from bijoux where ID=:id");
 
 
 $r->bindParam(":id",$id);
 $r->execute();
 
-$rr = $db->prepare("select etapes.ID, employees.nom from etapes join employees on etapes.IDE=employees.ID where etapes.IDB=:id");
+$rr = $db->prepare("select etapes.ID, NomE from etapes join employees on etapes.IDE=employees.ID where etapes.IDB=:id");
 $rr->bindParam(":id",$id);
 $rr->execute();
 
@@ -26,7 +26,7 @@ $etapes=$rr->fetchAll();
 <h1>Détail du bijou</h1>
     <table class="table table-hover">
         <thead class="thead-dark">
-          <th>Nom du Bijou: <?php echo $Bijou["Nom"]; ?></th>
+          <th>Nom du Bijou: <?php echo $Bijou["NomB"]; ?></th>
         </thead>
         <tbody>
 
@@ -42,7 +42,7 @@ $etapes=$rr->fetchAll();
                 ?>
                 <tr>
                     <td><?php echo $etape["ID"]; ?></td>
-                    <td><?php echo $etape["nom"]; ?></td>
+                    <td><?php echo $etape["NomE"]; ?></td>
                 </tr>
 
                 <?php

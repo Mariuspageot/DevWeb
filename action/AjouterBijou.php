@@ -13,7 +13,7 @@ $IDET=filter_input (INPUT_POST,"IDET");
 $temps=filter_input (INPUT_POST,"temps estime");
 $IDC=filter_input (INPUT_POST,"IDC");
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
-$r = $db->prepare("insert into bijoux (nom,prix,premiere tache,IDET,Temps estime,IDC)"." values (:Nom, :prix, :premiere tache, :Temps estime,:IDC,:IDET)");
+$r = $db->prepare("insert into bijoux (NomB,prix,premiere tache,IDET,Temps estime,IDC)"." values (:Nom, :prix, :premiere tache, :Temps estime,:IDC,:IDET)");
 
 $r->bindParam(":Nom",$nom);
 $r->bindParam(":prix",$prix);
