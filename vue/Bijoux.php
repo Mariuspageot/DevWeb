@@ -51,8 +51,4 @@ $bijoux=$r->fetchAll();
         </tbody>
     </table>
     <a href="Nouveau_bijou.php" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Nouveau</a>
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-dark" type="submit">Search</button>
-    </form>
 <?php include_once'footer.php'?>
