@@ -11,7 +11,7 @@ $r = $db->prepare("select Nom from bijoux where ID=:id");
 $r->bindParam(":id",$id);
 $r->execute();
 
-$rr = $db->prepare("select etapes.ID, bijoux.Nom, employees.nom from etapes join employees on etapes.IDE=employees.ID join bijoux on etapes.IDB=bijoux.ID where etapes.IDB=:id");
+$rr = $db->prepare("select etapes.ID, employees.nom from etapes join employees on etapes.IDE=employees.ID where etapes.IDB=:id");
 $rr->bindParam(":id",$id);
 $rr->execute();
 
@@ -34,7 +34,6 @@ $etapes=$rr->fetchAll();
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Nom</th>
                         <th scope="col">Employé</th>
                     </tr>
                 </thead>
@@ -43,7 +42,6 @@ $etapes=$rr->fetchAll();
                 ?>
                 <tr>
                     <td><?php echo $etape["ID"]; ?></td>
-                    <td><?php echo $etape["Nom"]; ?></td>
                     <td><?php echo $etape["nom"]; ?></td>
                 </tr>
 
