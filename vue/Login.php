@@ -12,7 +12,7 @@
   <div class="card mb-3" style="width: 18rem;">
   <img src="../logo-chimere.svg"  class="rounded mx-auto d-block" height="250vh">
   <div class="card-body">
-    <form>
+    <form action="../vue/log.php" method="post">
       <div class="form-group">
         <label for="login">Nom d'utilisateur</label>
         <input type="text" class="form-control" id="login" aria-describedby="login" placeholder="Nom d'utilisateur">
