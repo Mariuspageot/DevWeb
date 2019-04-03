@@ -12,7 +12,7 @@ $Metiers=$r->fetchAll();
 <form action="../action/AjouterEmploye.php" method="post">
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="nom">Nom</label>
+      <label for="Nom">Nom</label>
       <input type="text" class="form-control" id="Nom" placeholder="Nom de l'employer">
     </div>
     <div class="form-group col-md-6">
@@ -22,8 +22,8 @@ $Metiers=$r->fetchAll();
   </div>
   <div class="form-row">
     <div class="form-group col-md-4">
-      <label for="inputState">Profession</label>
-      <select id="inputState" class="form-control">
+      <label for="IDM">Profession</label>
+      <select id="IDM" class="form-control">
         <option selected>Choose...</option>
           <?php
           foreach ($Metiers as $metier) {
@@ -35,16 +35,16 @@ $Metiers=$r->fetchAll();
       </select>
     </div>
     <div class="form-group col-md-4">
-      <label for="inputState">Grade</label>
-      <select id="inputState" class="form-control">
+      <label for="Grade">Grade</label>
+      <select id="Grade" class="form-control">
         <option selected>Choose...</option>
         <option>Employer</option>
         <option>Chef</option>
       </select>
     </div>
     <div class="form-group col-md-4">
-      <label for="inputState">Statue</label>
-      <select id="inputState" class="form-control">
+      <label for="Status">Status</label>
+      <select id="Status" class="form-control">
         <option selected>Choose...</option>
         <option>Actif</option>
         <option>Licencier</option>
