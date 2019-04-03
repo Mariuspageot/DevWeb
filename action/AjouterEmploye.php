@@ -11,20 +11,14 @@ $prenom=filter_input (INPUT_POST,"Prenom");
 $Grade=filter_input (INPUT_POST,"Grade");
 $IDM=filter_input (INPUT_POST,"IDM");
 $Status=filter_input (INPUT_POST,"Status");
-$Password=filter_input (INPUT_POST,"Password");
-$Login=filter_input (INPUT_POST,"Login");
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
-$r = $db->prepare("insert into employees (NomE,PrenomE,Grade,IDMetier,Statue,Password,Login)"." values (:Nom, :prenom, :Grade, :IDM, :Statue, :Password, :Login)");
+$r = $db->prepare("insert into employees (NomE,PrenomE,Grade,NomMetier,Statue)"." values (:Nom, :prenom, :Grade, :IDM, :Statue,)");
 
 $r->bindParam(":Nom",$nom);
 $r->bindParam(":prenom",$prenom);
 $r->bindParam(":Grade",$Grade);
 $r->bindParam(":IDM",$IDM);
 $r->bindParam(":Status",$Status);
-$r->bindParam(":Password",$Password);
-$r->bindParam(":Login",$Login);
 
 $r->execute();
-
-
 ?>

@@ -6,8 +6,6 @@ $id=filter_input(INPUT_GET, "ID");
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
 $r = $db->prepare("select NomB from bijoux where ID=:id");
-
-
 $r->bindParam(":id",$id);
 $r->execute();
 

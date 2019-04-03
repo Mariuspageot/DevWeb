@@ -1,6 +1,15 @@
+<?php
+require_once '../Config.php';
+$db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
+
+$r = $db->prepare("select NomMetier from metier");
+$r -> execute();
+$Metiers=$r->fetchAll();
+?>
+
 <?php $title = "Nouveau employer"; ?>
 <?php include_once'header.php'?>
-<form>
+<form action="../action/AjouterEmploye.php" method="post">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="nom">Nom</label>
@@ -16,10 +25,13 @@
       <label for="inputState">Profession</label>
       <select id="inputState" class="form-control">
         <option selected>Choose...</option>
-        <option>Fondeur/Mouleur</option>
-        <option>Polisseur</option>
-        <option>Tailleur</option>
-        <option>Sertisseur</option>
+          <?php
+          foreach ($Metiers as $metier) {
+              ?>
+              <option><?php echo $metier["NomMetier"] ?></option>
+              <?php
+          }
+              ?>
       </select>
     </div>
     <div class="form-group col-md-4">
