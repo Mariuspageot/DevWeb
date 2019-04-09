@@ -12,7 +12,7 @@ $Grade=filter_input (INPUT_POST,"Grade");
 $IDM=filter_input (INPUT_POST,"IDM");
 $Status=filter_input (INPUT_POST,"Status");
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
-$r = $db->prepare("insert into employees (NomE,PrenomE,Grade,NomMetier,Statue)"." values (:Nom, :prenom, :Grade, :IDM, :Statue,)");
+$r = $db->prepare("insert into employees (NomE,PrenomE,Grade,NomMetier,Status)"." values ( :Nom, :prenom, :Grade, :IDM, :Status)");
 
 $r->bindParam(":Nom",$nom);
 $r->bindParam(":prenom",$prenom);
@@ -21,4 +21,6 @@ $r->bindParam(":IDM",$IDM);
 $r->bindParam(":Status",$Status);
 
 $r->execute();
+
+header("location: ../vue/Nouveau_employer.php")
 ?>
