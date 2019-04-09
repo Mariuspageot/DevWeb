@@ -38,18 +38,18 @@ $Metiers=$r->fetchAll();
       <label for="inputState">Grade</label>
       <select id="inputState" class="form-control">
         <option selected>Choose...</option>
-        <option>Employer</option>
-        <option>Chef</option>
+        <option><?php echo "Employer"?></option>
+        <option><?php echo "Chef"?></option>
       </select>
     </div>
     <div class="form-group col-md-4">
       <label for="inputState">Statue</label>
       <select id="inputState" class="form-control">
         <option selected>Choose...</option>
-        <option>Actif</option>
-        <option>Licencier</option>
-        <option>Arrêt</option>
-        <option>Vacances</option>
+        <option><?php echo "Actif"?></option>
+        <option><?php echo "Licencier"?></option>
+        <option><?php echo "Arrêt"?></option>
+        <option><?php echo "Actif"?>Vacances</option>
       </select>
   </div>
   </div>
