@@ -30,18 +30,16 @@ $bijoux=$r->fetchAll();
                     <th scope="col">Nom</th>
                     <th scope="col">Prix</th>
                     <th scope="col">Client</th>
-                    <th scope="col"></th>
                 </tr>
                 </thead>
             <?php
             foreach ($bijoux as  $bijou) {
                 ?>
-                <tr>
+                <tr onclick="location.href='Etape.php?id=<?php echo $bijou["ID"]; ?>'">
                     <td><?php echo $bijou["ID"]; ?></td>
                     <td><?php echo $bijou["NomB"]; ?></td>
                     <td><?php echo $bijou["Prix"]; echo "€"?></td>
                     <td><?php echo $bijou["IDC"]; ?></td>
-                    <td><a href="Detail_bijou.php?ID=<?php echo $bijou["ID"]?>" class="btn btn-dark">VOIR</a></td>
                 </tr>
 
                 <?php

@@ -1,6 +1,7 @@
 <?php
 require_once '../Config.php';
-$id=filter_input(INPUT_GET, "ID");
+$id=filter_input(INPUT_GET, "id");
+$ide=filter_input(INPUT_GET, "ide");
 
 
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
@@ -50,5 +51,5 @@ $etapes=$rr->fetchAll();
             </table>
         </tbody>
 </table>
-<a href="Bijoux.php" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Retour</a>
+<a href="Etape.php?id=<?php echo $id; ?>?ide=<?php echo $ide; ?>" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Retour</a>
 <?php include_once'./footer.php'?>
