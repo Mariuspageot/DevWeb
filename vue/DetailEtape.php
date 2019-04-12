@@ -1,17 +1,17 @@
 <?php
 require_once '../Config.php';
-$id=filter_input(INPUT_GET, "id");
 $ide=filter_input(INPUT_GET, "ide");
+$idb=filter_input(INPUT_GET, "idb");
 
 
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
-$r = $db->prepare("select NomB from bijoux where ID=:id");
-$r->bindParam(":id",$id);
+$r = $db->prepare("select NomB, ID from bijoux where ID=:idb");
+$r->bindParam(":idb",$idb);
 $r->execute();
 
-$rr = $db->prepare("select etapes.ID, NomE from etapes join employees on etapes.IDE=employees.ID where etapes.IDB=:id");
-$rr->bindParam(":id",$id);
+$rr = $db->prepare("select etapes.IDB, etapes.ID, NomE from etapes join employees on etapes.IDE=employees.ID where etapes.IDB=:idb");
+$rr->bindParam(":idb",$idb);
 $rr->execute();
 
 
@@ -26,6 +26,7 @@ $etapes=$rr->fetchAll();
     <table class="table table-hover">
         <thead class="thead-dark">
           <th>Nom du Bijou: <?php echo $Bijou["NomB"]; ?></th>
+          <th>ID de l'étape: <?php echo $ide; ?></th>
         </thead>
         <tbody>
 
@@ -51,5 +52,5 @@ $etapes=$rr->fetchAll();
             </table>
         </tbody>
 </table>
-<a href="Etape.php?id=<?php echo $id; ?>?ide=<?php echo $ide; ?>" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Retour</a>
+<a href="Etape.php?idb=<?php echo $idb; ?>" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Retour</a>
 <?php include_once'./footer.php'?>

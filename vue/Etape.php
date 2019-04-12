@@ -1,16 +1,16 @@
 <?php
 require_once '../Config.php';
-$id=filter_input(INPUT_GET, "id");
+$idb=filter_input(INPUT_GET, "idb");
 
 
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
-$r = $db->prepare("select NomB from bijoux where ID=:id");
-$r->bindParam(":id",$id);
+$r = $db->prepare("select NomB from bijoux where ID=:idb");
+$r->bindParam(":idb",$idb);
 $r->execute();
 
-$rr = $db->prepare("select etapes.ID, IDMetierSuivant, NomE, NomMetier from etapes join employees on etapes.IDE=employees.ID join metier on IDMetier=metier.ID where etapes.IDB=:id");
-$rr->bindParam(":id",$id);
+$rr = $db->prepare("select etapes.ID, IDMetierSuivant, NomE, NomMetier from etapes join employees on etapes.IDE=employees.ID join metier on IDMetier=metier.ID where etapes.IDB=:idb");
+$rr->bindParam(":idb",$idb);
 $rr->execute();
 
 
@@ -40,7 +40,7 @@ $etapes=$rr->fetchAll();
             <?php
             foreach ($etapes as  $etape) {
                 ?>
-                <tr onclick="location.href='DetailEtape.php?ide=<?php echo $etape["ID"]; ?>?id=<?php echo $id; ?>'">
+                <tr onclick="location.href='DetailEtape.php?ide=<?php echo $etape["ID"]; ?> &amp; ?idb=<?php echo $idb; ?>'">
                     <td><?php echo $etape["NomE"]; ?></td>
                     <td><?php echo $etape["NomMetier"]; ?></td>
                     <td><?php echo $etape["IDMetierSuivant"]; ?></td>

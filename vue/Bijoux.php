@@ -35,7 +35,7 @@ $bijoux=$r->fetchAll();
             <?php
             foreach ($bijoux as  $bijou) {
                 ?>
-                <tr onclick="location.href='Etape.php?id=<?php echo $bijou["ID"]; ?>'">
+                <tr onclick="location.href='Etape.php?idb=<?php echo $bijou["ID"]; ?>'">
                     <td><?php echo $bijou["ID"]; ?></td>
                     <td><?php echo $bijou["NomB"]; ?></td>
                     <td><?php echo $bijou["Prix"]; echo "€"?></td>
