@@ -5,7 +5,7 @@
 require_once '../Config.php';
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
-$r = $db->prepare("select employees.ID, NomE, PrenomE, Grade, metier.NomMetier, Status from employees join metier on employees.NomMetier=metier.NomMetier");
+$r = $db->prepare("select employees.ID, NomE, PrenomE, Grade, metier.NomMetier, Status from employees join metier on employees.IDMetier=metier.ID");
 
 $r -> execute();
 

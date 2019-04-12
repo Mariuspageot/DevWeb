@@ -13,17 +13,17 @@ $Metiers=$r->fetchAll();
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="Nom">Nom</label>
-      <input type="text" class="form-control" id="Nom" placeholder="Nom de l'employer">
+      <input type="text" class="form-control" id="Nom" name="Nom" placeholder="Nom de l'employer">
     </div>
     <div class="form-group col-md-6">
       <label for="Prenom">Prénom</label>
-      <input type="text" class="form-control" id="Prenom" placeholder="Prénom de l'employer">
+      <input type="text" class="form-control" id="Prenom" name="Prenom" placeholder="Prénom de l'employer">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-4">
-      <label for="IDM">Profession</label>
-      <select id="IDM" class="form-control">
+      <label for="NomMetier">Profession</label>
+      <select id="NomMetier" name="NomMetier" class="form-control">
         <option selected>Choose...</option>
           <?php
           foreach ($Metiers as $metier) {
@@ -36,7 +36,7 @@ $Metiers=$r->fetchAll();
     </div>
     <div class="form-group col-md-4">
       <label for="Grade">Grade</label>
-      <select id="Grade" class="form-control">
+      <select id="Grade" name="Grade" class="form-control">
         <option selected>Choose...</option>
         <option><?php echo "Employer"?></option>
         <option><?php echo "Chef"?></option>
@@ -44,12 +44,12 @@ $Metiers=$r->fetchAll();
     </div>
     <div class="form-group col-md-4">
       <label for="Status">Status</label>
-      <select id="Status" class="form-control">
+      <select id="Status" name="Status" class="form-control">
         <option selected>Choose...</option>
         <option><?php echo "Actif"?></option>
         <option><?php echo "Licencier"?></option>
         <option><?php echo "Arrêt"?></option>
-        <option><?php echo "Actif"?>Vacances</option>
+        <option><?php echo "Vacances"?></option>
       </select>
   </div>
   </div>
