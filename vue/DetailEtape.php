@@ -10,8 +10,8 @@ $r = $db->prepare("select NomB, ID from bijoux where ID=:idb");
 $r->bindParam(":idb",$idb);
 $r->execute();
 
-$rr = $db->prepare("select etapes.IDB, etapes.ID, NomE from etapes join employees on etapes.IDE=employees.ID where etapes.IDB=:idb");
-$rr->bindParam(":idb",$idb);
+$rr = $db->prepare("select etapes.IDB, etapes.ID, NomE from etapes join employees on etapes.IDE=employees.ID where etapes.ID=:ide");
+$rr->bindParam(":ide",$ide);
 $rr->execute();
 
 
@@ -30,26 +30,34 @@ $etapes=$rr->fetchAll();
         </thead>
         <tbody>
 
-            <table class="table table-hover ">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Employé</th>
-                    </tr>
-                </thead>
-                <?php
-                foreach ($etapes as  $etape) {
-                ?>
-                <tr>
-                    <td><?php echo $etape["ID"]; ?></td>
-                    <td><?php echo $etape["NomE"]; ?></td>
-                </tr>
+        <table class="table table-hover table-dark">
+            <tbody>        <tr>
+                <th>Employer</th>
+                <th><?php echo $etapes["NomB"] ?></th>
+            </tr>
+            <tr>
+                <th>Tache attribuer</th>
+                <th>woala</th>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <th>woala</th>
+            </tr>
+            <tr>
+                <th>Temps pris</th>
+                <th>woala</th>
+            </tr>
+            <tr>
+                <th>Prochaine tache</th>
+                <th>woala</th>
+            </tr>
+            <tr>
+                <th>Descriptif</th>
+                <th>woala</th>
+            </tr>
 
-                <?php
-                }
-                ?>
-
-            </table>
+            </tbody>
+        </table>
         </tbody>
 </table>
 <a href="Etape.php?idb=<?php echo $idb; ?>" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Retour</a>
