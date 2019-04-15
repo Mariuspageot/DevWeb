@@ -24,19 +24,15 @@ $Metiers=$r->fetchAll();
     <label for="premiere_tache">premiere tache</label>
     <input type="text" class="form-control" id="premiere_tache" placeholder="premiere tache">
   </div>
-  <div class="form-group">
-    <label for="description">IDET</label>
-    <input type="text" class="form-control" id="IDET" placeholder="etape">
-  </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="temps">Temps estimé</label>
-      <input type="text" class="form-control" id="temps" placeholder="Temps prévue">
+      <input type="time" class="form-control" id="temps" placeholder="Temps prévue">
     </div>
   </div>
     <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="temps">IDC</label>
+      <label for="Client">Client</label>
       <input type="text" class="form-control" id="IDC" placeholder="Client">
     </div>
   </div>
