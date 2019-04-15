@@ -1,18 +1,27 @@
+<?php
+require_once '../Config.php';
+$db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
+
+$r = $db->prepare("select NomMetier from metier");
+$r -> execute();
+$Metiers=$r->fetchAll();
+?>
+
 <?php $title = "Nouveau bijou"; ?>
 <?php include_once'header.php'?>
 <form>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="nom">Nom</label>
-      <input type="text" class="form-control" id="nom" placeholder="Nom du client">
+      <input type="text" class="form-control" id="nom" placeholder="Nom du bijou">
     </div>
     <div class="form-group col-md-6">
-      <label for="prénom">prix</label>
+      <label for="prix">prix</label>
       <input type="text" class="form-control" id="prix" placeholder="prix">
     </div>
   </div>
   <div class="form-group">
-    <label for="nomBijou">premiere tache</label>
+    <label for="premiere_tache">premiere tache</label>
     <input type="text" class="form-control" id="premiere_tache" placeholder="premiere tache">
   </div>
   <div class="form-group">
@@ -36,10 +45,13 @@
       <label for="inputState">Première tache</label>
       <select id="inputState" class="form-control">
         <option selected>Choose...</option>
-        <option>Fondeur/Mouleur</option>
-        <option>Polisseur</option>
-        <option>Tailleur</option>
-        <option>Sertisseur</option>
+          <?php
+          foreach ($Metiers as $metier) {
+              ?>
+              <option><?php echo $metier["NomMetier"] ?></option>
+              <?php
+          }
+          ?>
       </select>
     </div>
   </div>

@@ -33,17 +33,15 @@ $etapes=$rr->fetchAll();
             <tr>
                 <th scope="col">Employé</th>
                 <th scope="col">Tâche</th>
-                <th scope="col">Tâche suivante</th>
 
             </tr>
             </thead>
             <?php
             foreach ($etapes as  $etape) {
                 ?>
-                <tr onclick="location.href='DetailEtape.php?ide=<?php echo $etape["ID"]; ?> &amp; ?idb=<?php echo $idb; ?>'">
+                <tr onclick="location.href='DetailEtape.php?ide=<?php echo $etape["ID"]; ?>'">
                     <td><?php echo $etape["NomE"]; ?></td>
                     <td><?php echo $etape["NomMetier"]; ?></td>
-                    <td><?php echo $etape["IDMetierSuivant"]; ?></td>
                 </tr>
 
                 <?php
