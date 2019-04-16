@@ -12,15 +12,15 @@
   <div class="card mb-3" style="width: 18rem;">
   <img src="../logo-chimere.svg"  class="rounded mx-auto d-block" height="250vh">
   <div class="card-body">
-    <form action="../vue/log.php" method="post">
+    <form action="../action/log.php" method="post">
       <div class="form-group">
         <label for="login">Nom d'utilisateur</label>
-        <input type="text" class="form-control" id="login" aria-describedby="login" placeholder="Nom d'utilisateur">
+        <input type="text" class="form-control" id="login" name="login" aria-describedby="login" placeholder="Nom d'utilisateur">
         <small id="login" class="form-text text-muted"></small>
       </div>
       <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" class="form-control" id="password" placeholder="Mot de passe">
+        <label for="pwd">Mot de passe</label>
+        <input type="text" class="form-control" id="pwd" name="pwd" placeholder="Mot de passe">
       </div>
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">

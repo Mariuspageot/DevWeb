@@ -53,4 +53,5 @@ $etapes=$rr->fetchAll();
         </tbody>
     </table>
     <a href="Bijoux.php" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Retour</a>
+    <a href="Nouveau_Etape.php?idb=<?php echo $idb; ?>" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Nouvelle</a>
 <?php include_once'./footer.php'?>
