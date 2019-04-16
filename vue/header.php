@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,6 +14,6 @@
 </head>
 <body>
 <?php include_once'menu.php'; ?>
-
+<?php session_start(); ?>
 
   <div class="container">

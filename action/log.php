@@ -5,12 +5,16 @@ $pwd=filter_input(INPUT_POST, "pwd");
 
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
-$r = $db->prepare("select Login, Password from employees where Login = :login and Password = :pwd");
+$rr= $db->prepare("select id, nommetier from metier");
+$rr -> execute();
+$r = $db->prepare("select Login, Password, IDMetier, NomE, PrenomE from employees where Login = :login and Password = :pwd");
 $r->bindParam(":login",$login);
 $r->bindParam(":pwd",$pwd);
 $r->execute();
 
-$lignes = $r->fetchAll();
+$lignes = $r -> fetchAll();
+$metier = $rr -> fetchAll();
+
 
 
 
@@ -23,9 +27,9 @@ if (isset($_POST['login']) && isset($_POST['pwd'])) {
 
         session_start ();
 
-        $_SESSION['login'] = $_POST['login'];
-        $_SESSION['pwd'] = $_POST['pwd'];
-
+            $_SESSION['IDMetier'] = $lignes["IDMetier"];
+            $_SESSION['NomE'] = $lignes["NomE"];
+            $_SESSION['PrenomE'] = $lignes['PrenomE'];
 
         header ('location: ../vue/Bijoux.php');
     }
