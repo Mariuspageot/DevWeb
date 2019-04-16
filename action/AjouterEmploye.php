@@ -8,7 +8,6 @@
 require_once '../Config.php';
 $nom= filter_input(INPUT_POST, "Nom");
 $prenom=filter_input (INPUT_POST,"Prenom");
-$Grade=filter_input (INPUT_POST,"Grade");
 $NomMetier=filter_input (INPUT_POST,"NomMetier");
 $Status=filter_input (INPUT_POST,"Status");
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
@@ -24,11 +23,10 @@ foreach ($IDMs as $IDM){
  }
 }
 
-$r = $db->prepare("insert into employees (NomE,PrenomE,Grade,IDMetier,Status)"." values ( :Nom, :prenom, :Grade, :IDM, :Status)");
+$r = $db->prepare("insert into employees (NomE,PrenomE,IDMetier,Status)"." values ( :Nom, :prenom, :IDM, :Status)");
 
 $r->bindParam(":Nom",$nom);
 $r->bindParam(":prenom",$prenom);
-$r->bindParam(":Grade",$Grade);
 $r->bindParam(":IDM",$ID);
 $r->bindParam(":Status",$Status);
 

@@ -30,12 +30,15 @@ $Metiers=$r->fetchAll();
       <input type="time" class="form-control" id="temps" placeholder="Temps prévue">
     </div>
   </div>
-    <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="Client">Client</label>
-      <input type="text" class="form-control" id="IDC" placeholder="Client">
+    <div class="form-group">
+        <label for="sel1">Select list:</label>
+        <select class="form-control" id="sel1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
     </div>
-  </div>
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="inputState">Première tache</label>

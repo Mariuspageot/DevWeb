@@ -35,14 +35,6 @@ $Metiers=$r->fetchAll();
       </select>
     </div>
     <div class="form-group col-md-4">
-      <label for="Grade">Grade</label>
-      <select id="Grade" name="Grade" class="form-control">
-        <option selected>Choose...</option>
-        <option><?php echo "Employer"?></option>
-        <option><?php echo "Chef"?></option>
-      </select>
-    </div>
-    <div class="form-group col-md-4">
       <label for="Status">Status</label>
       <select id="Status" name="Status" class="form-control">
         <option selected>Choose...</option>

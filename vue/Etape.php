@@ -5,7 +5,7 @@ $idb=filter_input(INPUT_GET, "idb");
 
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
-$r = $db->prepare("select NomB from bijoux where ID=:idb");
+$r = $db->prepare("select NomB, NomC, PrenomC from bijoux join clients on clients.ID=bijoux.IDC where bijoux.ID=:idb");
 $r->bindParam(":idb",$idb);
 $r->execute();
 
@@ -25,6 +25,7 @@ $etapes=$rr->fetchAll();
     <table class="table table-hover">
         <thead class="thead-dark">
         <th>Nom du Bijou: <?php echo $Bijou["NomB"]; ?></th>
+        <th>Nom du Client: <?php echo $Bijou["NomC"]; ?> <?php echo $Bijou["PrenomC"]; ?></th>
         </thead>
         <tbody>
 
