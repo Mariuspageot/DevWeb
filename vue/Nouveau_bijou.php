@@ -28,7 +28,7 @@ $Clients=$rr->fetchAll();
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="Temps">Temps estimé</label>
-      <input type="time" class="form-control" id="Temps" name="Temps" placeholder="Temps prévue">
+      <input type="date" class="form-control" id="Temps" name="Temps" placeholder="Temps prévue">
     </div>
   </div>
     <div class="form-group">
