@@ -7,8 +7,6 @@ require_once '../Config.php';
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
 $r = $db->prepare("select ID, NomB, Prix from bijoux");
-$rr = $db->prepare("select nommetier from metier where ");
-$rr -> execute();
 $r -> execute();
 
 $bijoux=$r->fetchAll();
@@ -22,7 +20,7 @@ $bijoux=$r->fetchAll();
         <th>Prénom: <?php echo $_SESSION["PrenomE"] ?></th>
         </thead>
         <thead>
-        <th>Metier: <?php echo $_SESSION["IDMetier"] ?></th>
+        <th>Metier: <?php echo $_SESSION["Metier"] ?></th>
         </thead>
         <tbody>
             <table class="table table-hover">
