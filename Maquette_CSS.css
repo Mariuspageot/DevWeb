@@ -8,7 +8,7 @@ body{
     background-color: darkcyan;
 }
 body> .container{
-    padding-top: 10%;
+    padding-top: 20%;
 }
 .card{
     position: relative;

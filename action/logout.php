@@ -1,11 +1,12 @@
 <?php
 session_start();
-$_SESSION=array();
+$_SESSION = array();
+setcookie (session_id(), "", time() - 3600);
 session_destroy();
-$data 			= array();
-$data['success']=true;
-$data['message'] = "Vous êtes bien déconnecté  !";
-echo json_encode($data);
 
+// Destruction du tableau de session
+unset($_SESSION);
+header("location: ../vue/Login.php");
+exit();
 
 ?>

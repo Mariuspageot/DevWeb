@@ -36,7 +36,7 @@ if (isset($_POST['login']) && isset($_POST['pwd'])) {
 
         session_start ();
 
-
+            $_SESSION['login'] = $login;
             $_SESSION['NomE'] = $lignes["NomE"];
             $_SESSION['PrenomE'] = $lignes['PrenomE'];
             $_SESSION['Metier'] = $MU;
