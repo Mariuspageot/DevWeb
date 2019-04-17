@@ -11,7 +11,7 @@ $r -> execute();
 
 $bijoux=$r->fetchAll();
 ?>
-    <h1>Liste des bijoux</h1>
+    <h1>Bijoux</h1>
     <table>
         <thead>
         <th>Nom: <?php echo $_SESSION["NomE"] ?></th>

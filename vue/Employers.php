@@ -11,17 +11,17 @@ $r -> execute();
 
 $employees=$r->fetchAll();
 ?>
-    <h1>Liste des employers</h1>
+    <h1>Employers</h1>
     <table>
-    <thead>
-    <th>Nom:</th>
-    </thead>
-    <thead>
-    <th>Prénom:</th>
-    </thead>
-    <thead>
-    <th>Grade:</th>
-    </thead>
+        <thead>
+        <th>Nom: <?php echo $_SESSION["NomE"] ?></th>
+        </thead>
+        <thead>
+        <th>Prénom: <?php echo $_SESSION["PrenomE"] ?></th>
+        </thead>
+        <thead>
+        <th>Metier: <?php echo $_SESSION["Metier"] ?></th>
+        </thead>
     <tbody>
     <table class="table table-hover">
         <thead class="thead-dark">
