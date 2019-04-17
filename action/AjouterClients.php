@@ -1,7 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Joackim
- * Date: 17/04/2019
- * Time: 10:16
- */
+
+require_once '../Config.php';
+$nom= filter_input(INPUT_POST, "Nom");
+
+$db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
+$r = $db->prepare("insert into clients(NomC)"." values ( :Nom)");
+$r->bindParam(":Nom",$nom);
+
+$r->execute();
+
+header("location: ../vue/Liste-clients.php")
+?>
