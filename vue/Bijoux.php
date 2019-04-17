@@ -2,25 +2,25 @@
 <?php include_once'./header.php'?>
 
 <?php
+
 require_once '../Config.php';
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
 $r = $db->prepare("select ID, NomB, Prix from bijoux");
-
 $r -> execute();
 
 $bijoux=$r->fetchAll();
 ?>
-    <h1>Liste des bijoux</h1>
+    <h1>Bijoux</h1>
     <table>
         <thead>
-        <th>Nom:</th>
+        <th>Nom: <?php echo $_SESSION["NomE"] ?></th>
         </thead>
         <thead>
-        <th>Prénom:</th>
+        <th>Prénom: <?php echo $_SESSION["PrenomE"] ?></th>
         </thead>
         <thead>
-        <th>Grade:</th>
+        <th>Metier: <?php echo $_SESSION["Metier"] ?></th>
         </thead>
         <tbody>
             <table class="table table-hover">

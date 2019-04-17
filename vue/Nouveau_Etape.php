@@ -1,5 +1,7 @@
 <?php
 require_once '../Config.php';
+$idb=filter_input(INPUT_GET, "idb");
+
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
 $r = $db->prepare("select NomMetier, ID from metier");
@@ -12,9 +14,9 @@ $Metiers=$r->fetchAll();
 $Clients=$rr->fetchAll();
 ?>
 
-<?php $title = "Nouveau bijou"; ?>
+<?php $title = "Nouvelle etape"; ?>
 <?php include_once'header.php'?>
-<form action="../action/AjouterBijou.php" method="post">
+<form action="../action/AjouterEtape.php" method="post">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="Nom">Nom</label>
@@ -60,7 +62,7 @@ $Clients=$rr->fetchAll();
     </div>
   </div>
   <button type="submit" class="btn btn-secondary btn-lg">Ajouter</button>
-<a href="Bijoux.php" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Retour</a>
+<a href="Etape.php?idb=<?php echo $idb; ?>" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Retour</a>
 </form>
 
 

@@ -20,10 +20,9 @@
               <a class="nav-link" href="Login.php"><i class="fas fa-bell" style="font-size: 1.5em;"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Login.php">Déconnexion</a>
+              <a class="nav-link" href="../action/logout.php" >Déconnexion</a>
             </li>
 
           </ul>
-
         </div>
-      </nav>
+</nav>
