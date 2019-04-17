@@ -13,6 +13,9 @@
             <li class="nav-item">
               <a class="nav-link" href="Employers.php">Employers</a>
             </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Liste-clients.php">Clients</a>
+              </li>
           </ul>
             <ul class="nav navbar-nav navbar-right">
 
