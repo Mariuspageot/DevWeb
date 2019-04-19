@@ -8,8 +8,14 @@ body{
     background-color: darkcyan;
 }
 body> .container{
-    padding-top: 20%;
+    padding-top: 10%;
 }
 .card{
     position: relative;
+}
+@media screen and (max-width:950px) {
+    body> .container{
+        padding-top: 20%;
+    }
+
 }
