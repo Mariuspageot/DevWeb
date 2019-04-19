@@ -40,6 +40,7 @@ if (isset($_POST['login']) && isset($_POST['pwd'])) {
             $_SESSION['NomE'] = $lignes["NomE"];
             $_SESSION['PrenomE'] = $lignes['PrenomE'];
             $_SESSION['Metier'] = $MU;
+            $_SESSION['IDMetier'] = $lignes["IDMetier"];
 
 
         header ('location: ../vue/Bijoux.php');

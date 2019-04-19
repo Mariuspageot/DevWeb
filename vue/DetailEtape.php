@@ -39,21 +39,21 @@ $suiv=$r->fetch();
             <tr>
                 <th>Etat</th>
                 <th><?php if($etape["controleDeQualite"]==1){
-                    echo "validé";
+                    echo "valide";
                     }else{
-                    echo " pas fini";
+                    echo "invalide";
                     } ?></th>
             </tr>
             <tr>
-                <th>Temps pris</th>
+                <th>Temps</th>
                 <th><?php echo $etape["Temps"] ?></th>
             </tr>
             <tr>
-                <th>Prochaine tache</th>
+                <th>Prochain métier</th>
                 <th><?php echo $suiv["NomMetierS"] ?></th>
             </tr>
             <tr>
-                <th>Descriptif</th>
+                <th>Description</th>
                 <th><?php echo $etape["Description"] ?></th>
             </tr>
 

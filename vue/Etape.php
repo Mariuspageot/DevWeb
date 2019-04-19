@@ -33,7 +33,7 @@ $etapes=$rr->fetchAll();
             <thead class="thead-dark">
             <tr>
                 <th scope="col">Employé</th>
-                <th scope="col">Tâche</th>
+                <th scope="col">Métier</th>
 
             </tr>
             </thead>
