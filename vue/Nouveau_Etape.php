@@ -90,9 +90,10 @@ $Metiers=$rrr->fetchAll();
             <option selected>Choose...</option>
             <?php
             foreach ($Metiers as $metier) {
-                ?>
-                <option><?php echo $metier["NomMetier"] ?></option>
-                <?php
+                if($metier["ID"]!= 5) { ?>
+                    <option><?php echo $metier["NomMetier"] ?></option>
+                    <?php
+                }
             }
             ?>
         </select>

@@ -45,7 +45,7 @@ $pierres->execute();
 $IDPs=$pierres->fetchAll();
 
 foreach ($IDPs as $IDP){
-    if ($IDP["NomMetier"]==$typeDePierre){
+    if ($IDP["NomPierre"]==$typeDePierre){
         $IDPI = $IDP["ID"];
     }
 }
@@ -68,6 +68,26 @@ $r->bindParam(":Description",$description);
 $r->bindParam(":Temps",$time);
 
 $r->execute();
+
+$etapeID = $db->prepare("select ID from etapes");
+$etapeID->execute();
+$etapeID->fetchAll();
+$IDET = $etapeID->rowCount();
+
+$rr = $db->prepare("insert into nombretypepierres(IDP, IDET, nombreDePierre, couts)"."values(:IDP, :IDET, :nombre, :couts)");
+$rr->bindParam(":IDP", $IDPI);
+$rr->bindParam(":IDET", $IDET);
+$rr->bindParam(":nombre", $nombreDePierre);
+$rr->bindParam(":couts", $cout);
+
+$rr->execute();
+
+$rrr = $db->prepare("insert into quantite(idmateriau, idet, quantiter)"."values(:IDMA, :IDET, :quantiter)");
+$rrr->bindParam(":IDMA", $IDA);
+$rrr->bindParam(":IDET", $IDET);
+$rrr->bindParam(":quantiter", $quantiter);
+
+$rrr->execute();
 
 header("location: ../vue/Nouveau_Etape.php")
 ?>
