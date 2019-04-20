@@ -14,8 +14,13 @@ $rr = $db->prepare("select etapes.IDB, employees.PrenomE, etapes.Description, et
 $rr->bindParam(":ide",$ide);
 $rr->execute();
 
-$etape=$rr->fetch();
+$rrr = $db->prepare("select etapes.ID, quantiter, nombreDePierre, NomMateriaux, couts, NomPierre from etapes join quantite on quantite.IDET=etapes.ID join materiaux on materiaux.ID=quantite.IDMateriau join nombretypepierres on nombretypepierres.IDET=etapes.ID join typepierres on typepierres.ID=IDP where etapes.ID=:ide");
+$rrr->bindParam(":ide",$ide);
+$rrr->execute();
+
 $suiv=$r->fetch();
+$etape=$rr->fetch();
+$matiere=$rrr->fetch();
 ?>
 <?php $title = "Detail du bijou"; ?>
 <?php include_once'./header.php'?>
@@ -51,6 +56,27 @@ $suiv=$r->fetch();
             <tr>
                 <th>Prochain métier</th>
                 <th><?php echo $suiv["NomMetierS"] ?></th>
+            </tr>
+            <tr>
+                <th>Matériaux</th>
+                <th><?php echo $matiere["NomMateriaux"] ?></th>
+            </tr>
+            <tr>
+                <th>Quantiter</th>
+                <th><?php echo $matiere["quantiter"] ?> g</th>
+            </tr>
+            <tr>
+                <th>Pierre</th>
+                <th><?php echo $matiere["NomPierre"] ?></th>
+            </tr>
+            <tr>
+                <th>Nombre de pierre</th>
+                <th><?php echo $matiere["nombreDePierre"] ?></th>
+            </tr>
+            <tr>
+                <th>Prix total</th>
+                <th><?php $cout = $matiere["couts"] * $matiere["nombreDePierre"];
+                        echo $cout?> €</th>
             </tr>
             <tr>
                 <th>Description</th>

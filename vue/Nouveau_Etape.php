@@ -26,11 +26,19 @@ $Metiers=$rrr->fetchAll();
     <th>Métier: <?php echo $_SESSION["Metier"]; ?></th>
     </thead>
     </table>
-<form action="../action/AjouterEtape.php" method="post">
+<form action="../action/AjouterEtape.php?idb=<?php echo $idb ?>" method="post">
     <div class="form-row">
         <div class="form-group col-md-4">
             <label for="Temps">Temps de l'étape</label>
             <input type="time" class="form-control" id="Temps" name="Temps" >
+        </div>
+        <div class="form-group col-md-4">
+            <label for="Validation">Validation</label>
+            <select class="form-control" id="Validation" name="Validation">
+                <option selected>Invalide</option>
+                <option>Valide</option>
+
+            </select>
         </div>
     </div>
   <div class="form-row">
@@ -69,6 +77,10 @@ $Metiers=$rrr->fetchAll();
       <div class="form-group col-md-4">
           <label for="Nombre">Nombre</label>
           <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre">
+      </div>
+      <div class="form-group col-md-4">
+          <label for="Cout">Cout</label>
+          <input type="text" class="form-control" id="Cout" name="Cout" placeholder="0 €">
       </div>
   </div>
     <div class="form-row">

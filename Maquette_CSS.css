@@ -9,6 +9,7 @@ body{
 }
 body> .container{
     padding-top: 10%;
+    padding-bottom: 5%;
 }
 .card{
     position: relative;
@@ -16,6 +17,7 @@ body> .container{
 @media screen and (max-width:950px) {
     body> .container{
         padding-top: 20%;
+        padding-bottom: 20%;
     }
 
 }

@@ -6,7 +6,7 @@ $pwd=filter_input(INPUT_POST, "pwd");
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
 
-$r = $db->prepare("select Login, Password, IDMetier, NomE, PrenomE from employees where Login = :login and Password = :pwd");
+$r = $db->prepare("select Login, ID, Password, IDMetier, NomE, PrenomE from employees where Login = :login and Password = :pwd");
 $r->bindParam(":login",$login);
 $r->bindParam(":pwd",$pwd);
 $r->execute();
@@ -36,6 +36,7 @@ if (isset($_POST['login']) && isset($_POST['pwd'])) {
 
         session_start ();
 
+            $_SESSION['IDE'] = $lignes["ID"];
             $_SESSION['login'] = $login;
             $_SESSION['NomE'] = $lignes["NomE"];
             $_SESSION['PrenomE'] = $lignes['PrenomE'];
