@@ -11,15 +11,25 @@ $Metiers=$r->fetchAll();
 <?php include_once'header.php'?>
 <form action="../action/AjouterEmploye.php" method="post">
   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="Nom">Nom</label>
-      <input type="text" class="form-control" id="Nom" name="Nom" placeholder="Nom de l'employer">
+        <div class="form-group col-md-6">
+            <label for="Nom">Nom</label>
+            <input type="text" class="form-control" id="Nom" name="Nom" placeholder="Nom de l'employer">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="Prenom">Prénom</label>
+            <input type="text" class="form-control" id="Prenom" name="Prenom" placeholder="Prénom de l'employer">
+        </div>
     </div>
-    <div class="form-group col-md-6">
-      <label for="Prenom">Prénom</label>
-      <input type="text" class="form-control" id="Prenom" name="Prenom" placeholder="Prénom de l'employer">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="Login">Nom de connexion</label>
+            <input type="text" class="form-control" id="Login" name="Login">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="pwd">Mot de passe</label>
+            <input type="password" class="form-control" id="pwd" name="pwd">
+        </div>
     </div>
-  </div>
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="NomMetier">Profession</label>

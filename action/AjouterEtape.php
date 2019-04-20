@@ -7,7 +7,6 @@ session_start();
  * Time: 15:57
  */
 require_once '../Config.php';
-$idb= filter_input(INPUT_GET, "idb");
 $time= filter_input(INPUT_POST, "Temps");
 $validation= filter_input(INPUT_POST, "Validation");
 $matiere=filter_input (INPUT_POST,"Materiaux");

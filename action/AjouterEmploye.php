@@ -10,6 +10,8 @@ $nom= filter_input(INPUT_POST, "Nom");
 $prenom=filter_input (INPUT_POST,"Prenom");
 $NomMetier=filter_input (INPUT_POST,"NomMetier");
 $Status=filter_input (INPUT_POST,"Status");
+$Login=filter_input (INPUT_POST,"Login");
+$pwd=filter_input (INPUT_POST,"pwd");
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 $rr = $db->prepare("select ID, NomMetier from metier");
 
@@ -23,12 +25,14 @@ foreach ($IDMs as $IDM){
  }
 }
 
-$r = $db->prepare("insert into employees (NomE,PrenomE,IDMetier,Status)"." values ( :Nom, :prenom, :IDM, :Status)");
+$r = $db->prepare("insert into employees (NomE,PrenomE,IDMetier,Status,Login,Password)"." values ( :Nom, :prenom, :IDM, :Status, :login, :pwd)");
 
 $r->bindParam(":Nom",$nom);
 $r->bindParam(":prenom",$prenom);
 $r->bindParam(":IDM",$ID);
 $r->bindParam(":Status",$Status);
+$r->bindParam(":login",$Login);
+$r->bindParam(":pwd",$pwd);
 
 $r->execute();
 
