@@ -10,12 +10,14 @@
             <li class="nav-item">
               <a class="nav-link" href="Bijoux.php">Liste des bijoux</a>
             </li>
+              <?php if ($_SESSION["IDMetier"] == "5"){ ?>
             <li class="nav-item">
               <a class="nav-link" href="Employers.php">Employers</a>
             </li>
               <li class="nav-item">
                   <a class="nav-link" href="Liste-clients.php">Clients</a>
               </li>
+                <?php }?>
           </ul>
             <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
