@@ -5,7 +5,7 @@ $idb=filter_input(INPUT_GET, "idb");
 
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
-$r = $db->prepare("select NomB, NomC from bijoux join clients on clients.ID=bijoux.IDC where bijoux.ID=:idb");
+$r = $db->prepare("select NomB, NomC, CoutTotal from bijoux join clients on clients.ID=bijoux.IDC where bijoux.ID=:idb");
 $r->bindParam(":idb",$idb);
 $r->execute();
 
@@ -26,6 +26,7 @@ $etapes=$rr->fetchAll();
         <thead class="thead-dark">
         <th>Nom du Bijou: <?php echo $Bijou["NomB"]; ?></th>
         <th>Nom du Client: <?php echo $Bijou["NomC"]; ?></th>
+        <th>Coût final: <?php echo $Bijou["CoutTotal"]; echo "€" ?></th>
         </thead>
         <tbody>
 
@@ -54,5 +55,7 @@ $etapes=$rr->fetchAll();
     </table>
     <a href="Bijoux.php" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Retour</a>
     <a href="Nouveau_Etape.php?idb=<?php echo $idb; ?>" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Nouvelle etape</a>
+<?php if ($_SESSION["IDMetier"]== 5){?>
     <a href="Modifier_bijou.php?idb=<?php echo $idb; ?>" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Modifier le bijoux</a>
+    <?php }?>
 <?php include_once'./footer.php'?>

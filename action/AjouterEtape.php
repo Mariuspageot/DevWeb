@@ -7,6 +7,7 @@ session_start();
  * Time: 15:57
  */
 require_once '../Config.php';
+$idb=filter_input(INPUT_GET,"idb");
 $time= filter_input(INPUT_POST, "Temps");
 $validation= filter_input(INPUT_POST, "Validation");
 $matiere=filter_input (INPUT_POST,"Materiaux");
@@ -22,6 +23,13 @@ $metier = $db->prepare("select ID, NomMetier from metier");
 $metier->execute();
 
 $IDMs=$metier->fetchAll();
+
+$couut = $db->prepare("select ID, CoutTotal from bijoux where bijoux.ID=:idb");
+$couut->bindParam(":idb",$idb);
+$couut->execute();
+$coutTotal = $couut->fetch();
+
+$CoutTotal = $coutTotal["CoutTotal"] + ($cout * $nombreDePierre);
 
 foreach ($IDMs as $IDM){
     if ($IDM["NomMetier"]==$metierSuiv){
@@ -57,6 +65,7 @@ if ($validation == "Invalide"){
 
 
 
+
 $r = $db->prepare("insert into etapes (IDE, IDMetierSuivant, IDB, controleDeQualite, Description, Temps )"." values ( :IDE, :IDMetierSuivant, :IDB, :controleDeQualite, :Description, :Temps)");
 
 $r->bindParam(":IDE",$_SESSION["IDE"]);
@@ -88,5 +97,9 @@ $rrr->bindParam(":quantiter", $quantiter);
 
 $rrr->execute();
 
-header("location: ../vue/Nouveau_Etape.php")
+$up = $db->prepare("update bijoux set CoutTotal=:coutTotal where ID=:idb");
+$up->bindParam(":coutTotal", $CoutTotal);
+$up->bindParam(":idb", $idb);
+$up->execute();
+header("location: ../vue/Nouveau_Etape.php?idb=$idb")
 ?>
