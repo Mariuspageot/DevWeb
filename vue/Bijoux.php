@@ -6,7 +6,7 @@
 require_once '../Config.php';
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
-$r = $db->prepare("select ID, NomB, Prix from bijoux order by ID desc");
+$r = $db->prepare("select ID, NomB, Prix, Temps from bijoux order by ID desc");
 $r -> execute();
 
 $bijoux=$r->fetchAll();
@@ -29,6 +29,7 @@ $bijoux=$r->fetchAll();
                     <th scope="col">ID</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prix</th>
+                    <th scope="col">Date de fin</th>
                 </tr>
                 </thead>
             <?php
@@ -38,6 +39,7 @@ $bijoux=$r->fetchAll();
                     <td><?php echo $bijou["ID"]; ?></td>
                     <td><?php echo $bijou["NomB"]; ?></td>
                     <td><?php echo $bijou["Prix"]; echo "€"?></td>
+                    <td><?php echo $bijou["Temps"]; ?></td>
                 </tr>
 
                 <?php
