@@ -32,6 +32,8 @@ $employees=$r->fetchAll();
 
             <th scope="col">Métier</th>
             <th scope="col">Status</th>
+            <th scope="col">Modifier</th>
+
         </tr>
         </thead>
         <?php
@@ -43,6 +45,7 @@ $employees=$r->fetchAll();
                 <td><?php echo $employee["PrenomE"]; ?></td>
                 <td><?php echo $employee["NomMetier"]; ?></td>
                 <td><?php echo $employee["Status"]; ?></td>
+                <td><a href="Modifier_employer.php?ide=<?php echo $employee["ID"]?>" class="btn btn-secondary" role="button" aria-pressed="true">Modifier</a></td>
             </tr>
 
             <?php

@@ -6,7 +6,7 @@ $pwd=filter_input(INPUT_POST, "pwd");
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
 
-$r = $db->prepare("select Login, ID, Password, IDMetier, NomE, PrenomE from employees where Login = :login and Password = :pwd");
+$r = $db->prepare("select Login, ID, Password, IDMetier, NomE, PrenomE, Status from employees where Login = :login and Password = :pwd");
 $r->bindParam(":login",$login);
 $r->bindParam(":pwd",$pwd);
 $r->execute();
@@ -30,7 +30,7 @@ foreach ($metiers as $metier) {
 if (isset($_POST['login']) && isset($_POST['pwd'])) {
 
 
-    if ($r -> rowCount()==1) {
+    if ($r -> rowCount()==1 and $lignes["Status"]=="Actif") {
 
 
 
@@ -45,6 +45,11 @@ if (isset($_POST['login']) && isset($_POST['pwd'])) {
 
 
         header ('location: ../vue/Bijoux.php');
+    }
+    elseif($r -> rowCount()==1 and $lignes["Status"]!="Actif") {
+        echo '<body onLoad="alert(\'Membre inactif...\')">';
+
+        echo '<meta http-equiv="refresh" content="0;URL=../vue/login.php">';
     }
     else {
 

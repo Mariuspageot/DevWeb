@@ -6,7 +6,7 @@
 require_once '../Config.php';
 $db = new PDO("mysql:host=".Config::SERVERNAME.";dbname=".Config::DBNAME , Config::USER , Config::PASSWORD);
 
-$r = $db->prepare("select ID, NomB, Prix from bijoux");
+$r = $db->prepare("select ID, NomB, Prix from bijoux order by ID desc");
 $r -> execute();
 
 $bijoux=$r->fetchAll();
