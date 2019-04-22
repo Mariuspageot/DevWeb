@@ -31,7 +31,7 @@ $Clients=$rr->fetchAll();
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="Nom">Nom</label>
-      <input type="text" class="form-control" id="Nom"  name="Nom" value="<?php echo htmlspecialchars($bijou["NomB"])?>">
+      <input type="text" class="form-control" id="Nom"  name="Nom" value="<?php echo $bijou["NomB"]?>">
     </div>
     <div class="form-group col-md-6">
       <label for="Prix">Prix</label>
@@ -81,7 +81,7 @@ $Clients=$rr->fetchAll();
       </select>
     </div>
   </div>
-  <button type="submit" class="btn btn-secondary btn-lg">Ajouter</button>
+  <button type="submit" class="btn btn-secondary btn-lg">Modifier</button>
 <a href="Etape.php?idb=<?php echo $idb; ?>" class="btn btn-secondary btn-lg" role="button" aria-pressed="true">Retour</a>
 </form>
 
